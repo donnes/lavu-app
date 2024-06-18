@@ -1,81 +1,47 @@
-# Turborepo starter
+# Lavu - Building in Public
 
-This is an official starter Turborepo.
+Lavu is a Brazilian personal laundry service that connects customers with local, independent laundry professionals. The service aims to provide a convenient and personalized laundry experience by allowing users to schedule pickups and deliveries through their platform. Lavu emphasizes quality, reliability, and customer satisfaction, ensuring that laundry is handled with care and returned clean and fresh. The company supports local economies by partnering with individual laundry providers, offering them a flexible way to earn income.
 
-## Using this example
+## Quick Start
 
-Run the following command:
+To get it running, follow the steps below:
+
+### 1. Setup dependencies
 
 ```sh
-npx create-turbo@latest
+# Install dependencies
+pnpm i
+
+# Configure environment variables
+# There is an `.env.example` in the root directory you can use for reference
+cp .env.example .env
+
+# Push the Drizzle schema to the database
+pnpm db:push
 ```
 
-## What's inside?
+### 2. Configure Expo `dev`-script
 
-This Turborepo includes the following packages/apps:
+#### Use iOS Simulator
 
-### Apps and Packages
+1. Make sure you have XCode and XCommand Line Tools installed [as shown on expo docs](https://docs.expo.dev/workflow/ios-simulator).
 
-- `docs`: a [Next.js](https://nextjs.org/) app
-- `web`: another [Next.js](https://nextjs.org/) app
-- `@repo/ui`: a stub React component library shared by both `web` and `docs` applications
-- `@repo/eslint-config`: `eslint` configurations (includes `eslint-config-next` and `eslint-config-prettier`)
-- `@repo/typescript-config`: `tsconfig.json`s used throughout the monorepo
+   > **NOTE:** If you just installed XCode, or if you have updated it, you need to open the simulator manually once. Run `npx expo start` from `apps/mobile`, and then enter `I` to launch Expo Go. After the manual launch, you can run `pnpm dev` in the root directory.
 
-Each package/app is 100% [TypeScript](https://www.typescriptlang.org/).
+   ```diff
+   +  "dev": "expo start --ios",
+   ```
 
-### Utilities
+2. Run `pnpm dev` at the project root folder.
 
-This Turborepo has some additional tools already setup for you:
+#### Use Android Emulator
 
-- [TypeScript](https://www.typescriptlang.org/) for static type checking
-- [ESLint](https://eslint.org/) for code linting
-- [Prettier](https://prettier.io) for code formatting
+1. Install Android Studio tools [as shown on expo docs](https://docs.expo.dev/workflow/android-studio-emulator).
 
-### Build
+2. Change the `dev` script at `apps/expo/package.json` to open the Android emulator.
 
-To build all apps and packages, run the following command:
+   ```diff
+   +  "dev": "expo start --android",
+   ```
 
-```
-cd my-turborepo
-pnpm build
-```
-
-### Develop
-
-To develop all apps and packages, run the following command:
-
-```
-cd my-turborepo
-pnpm dev
-```
-
-### Remote Caching
-
-Turborepo can use a technique known as [Remote Caching](https://turbo.build/repo/docs/core-concepts/remote-caching) to share cache artifacts across machines, enabling you to share build caches with your team and CI/CD pipelines.
-
-By default, Turborepo will cache locally. To enable Remote Caching you will need an account with Vercel. If you don't have an account you can [create one](https://vercel.com/signup), then enter the following commands:
-
-```
-cd my-turborepo
-npx turbo login
-```
-
-This will authenticate the Turborepo CLI with your [Vercel account](https://vercel.com/docs/concepts/personal-accounts/overview).
-
-Next, you can link your Turborepo to your Remote Cache by running the following command from the root of your Turborepo:
-
-```
-npx turbo link
-```
-
-## Useful Links
-
-Learn more about the power of Turborepo:
-
-- [Tasks](https://turbo.build/repo/docs/core-concepts/monorepos/running-tasks)
-- [Caching](https://turbo.build/repo/docs/core-concepts/caching)
-- [Remote Caching](https://turbo.build/repo/docs/core-concepts/remote-caching)
-- [Filtering](https://turbo.build/repo/docs/core-concepts/monorepos/filtering)
-- [Configuration Options](https://turbo.build/repo/docs/reference/configuration)
-- [CLI Usage](https://turbo.build/repo/docs/reference/command-line-reference)
+3. Run `pnpm dev` at the project root folder.
