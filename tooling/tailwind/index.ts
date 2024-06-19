@@ -15,7 +15,7 @@ export default {
     extend: {
       fontFamily: {
         sans: ["var(--font-sans)", ...fontFamily.sans],
-        sans: ["var(--font-mono)", ...fontFamily.sans],
+        mono: ["var(--font-mono)", ...fontFamily.sans],
       },
       keyframes: {
         "fade-up": {

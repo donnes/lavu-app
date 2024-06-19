@@ -7,11 +7,11 @@
     "build": "next build",
     "start": "next start",
     "lint": "biome lint ./src",
-    "lint:fix": "biome lint --apply ./src",
+    "lint:fix": "biome lint --write ./src",
     "format": "biome format ./src",
     "format:fix": "biome format --write ./src",
     "check": "biome check ./src",
-    "check:fix": "biome check --apply ./src",
+    "check:fix": "biome check --write ./src",
     "typecheck": "tsc --noEmit"
   },
   "dependencies": {
@@ -21,9 +21,10 @@
   },
   "devDependencies": {
     "@lavu/tsconfig": "^0.1.0",
-    "typescript": "^5",
+    "@lavu/tailwind": "^0.1.0",
     "@types/node": "^20",
     "@types/react": "^18",
-    "@types/react-dom": "^18"
+    "@types/react-dom": "^18",
+    "typescript": "~5.3.3"
   }
 }

@@ -9,6 +9,21 @@
     "lint": {
       "dependsOn": ["^lint"]
     },
+    "lint:fix": {
+      "dependsOn": ["^lint"]
+    },
+    "format": {
+      "dependsOn": ["^lint:fix", "^format"]
+    },
+    "format:fix": {
+      "dependsOn": ["^format"]
+    },
+    "check": {
+      "dependsOn": ["^format:fix", "^check"]
+    },
+    "check:fix": {
+      "dependsOn": ["^check"]
+    },
     "dev": {
       "cache": false,
       "persistent": true
